@@ -1,7 +1,7 @@
 #include "main.h"
 
 int main() {
-    std::cout << "Welcome to Pang !" << "\n";
+    Pang::start();
 
     return 0;
 }
