@@ -21,6 +21,14 @@ void Pang::start() {
     _state = Splashscreen;
 
     gameLoop();
+
+    // Auto deleting game states which we aren't using
+    auto itr = _stateInstances.begin();
+    while (itr != _stateInstances.end()) {
+        delete itr->second;
+        itr++;
+    }
+
     _window.close();
 }
 
