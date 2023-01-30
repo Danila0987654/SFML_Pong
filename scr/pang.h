@@ -8,9 +8,11 @@ public:
     const static int SCREEN_WIDTH = 500;
     const static int SCREEN_HEIGHT = 400;
     static void start();
+    static void gameLoop();
 
 private:
     static sf::RenderWindow _window;
+    static sf::Clock _clock;
 };
 
 
