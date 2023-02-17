@@ -9,8 +9,8 @@
 
 class Pang {
 public:
-    const static int SCREEN_WIDTH = 500;
-    const static int SCREEN_HEIGHT = 400;
+    const static int SCREEN_WIDTH = 800;
+    const static int SCREEN_HEIGHT = 600;
 
     enum State {Uninitialized, Splashscreen, Menu, Playing, Exiting};
 
