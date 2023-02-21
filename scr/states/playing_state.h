@@ -13,6 +13,9 @@ public:
 private:
     sf::Texture _player1Texture;
     sf::Sprite _player1Sprite;
+    float _playerSpeed = 80.0f;
+    enum Direction {DIRECTION_NONE, DIRECTION_UP, DIRECTION_DOWN};
+    Direction _playerDirection = DIRECTION_NONE;
 };
 
 #endif //SFML_PONG_PLAYING_STATE_H
