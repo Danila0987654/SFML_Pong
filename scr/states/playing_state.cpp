@@ -6,7 +6,7 @@ void PlayingState::init() {
         return;
     }
     _fieldSprite.setTexture(_fieldTexture);
-    _fieldSprite.setScale(0.35, 0.3);
+    _fieldSprite.setScale(0.35, 0.4);
     _fieldSprite.setPosition(80, 40);
 
 
@@ -37,6 +37,16 @@ void PlayingState::update(float timeElapsed) {
         velocity = _playerSpeed;
     }
     _player1Sprite.move(0, velocity * timeElapsed);
+
+    sf::Rect<float> fieldBound = _fieldSprite.getGlobalBounds();
+    sf::Vector2<float> player1Position = _player1Sprite.getPosition();
+
+    if (player1Position.y < fieldBound.top + 10) {
+        _player1Sprite.setPosition(player1Position.x, fieldBound.top + 10);
+    } else if (player1Position.y + _player1Sprite.getTexture()->getSize().y > fieldBound.top + fieldBound.height + 90) {
+        _player1Sprite.setPosition(player1Position.x, fieldBound.top + fieldBound.height -
+        _player1Sprite.getTexture()->getSize().y + 90);
+    }
 }
 void PlayingState::draw(sf::RenderWindow *window) {
     window->draw(_fieldSprite);
