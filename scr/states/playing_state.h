@@ -11,6 +11,11 @@ public:
     void update(float timeElapsed) override;
     void draw(sf::RenderWindow *window) override;
 private:
+    //Field
+    sf::Texture _fieldTexture;
+    sf::Sprite _fieldSprite;
+
+    //Player
     sf::Texture _player1Texture;
     sf::Sprite _player1Sprite;
     float _playerSpeed = 80.0f;

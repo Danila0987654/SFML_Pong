@@ -1,6 +1,15 @@
 #include "playing_state.h"
 
 void PlayingState::init() {
+    if (!_fieldTexture.loadFromFile("../assets/field.png")) {
+        std::cout << "Error while loading assets" << "\n";
+        return;
+    }
+    _fieldSprite.setTexture(_fieldTexture);
+    _fieldSprite.setScale(0.35, 0.3);
+    _fieldSprite.setPosition(80, 40);
+
+
     if (!_player1Texture.loadFromFile("../assets/paddle.png")) {
         std::cout << "Error while loading assets" << "\n";
         return;
@@ -30,5 +39,6 @@ void PlayingState::update(float timeElapsed) {
     _player1Sprite.move(0, velocity * timeElapsed);
 }
 void PlayingState::draw(sf::RenderWindow *window) {
+    window->draw(_fieldSprite);
     window->draw(_player1Sprite);
 }
